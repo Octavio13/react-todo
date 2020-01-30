@@ -13,6 +13,7 @@ function App() {
     const onRemove = (e) => {
         const newList = [...list.filter(x => x !== e)]
         setList(newList);
+
         //// [...list.filter(x=> x!== item1)]= [ item2, item3]
     }
 
@@ -33,7 +34,8 @@ function App() {
         </div>
         <div>
             <ul>
-                {list.map((item, i) => <li  onClick={(x) => onRemove(item)} >{item} <button type="button">mark as Done!</button> <button type="button"> delete</button> </li>   )}
+                {list.map((item, i) => <li  >{item} 
+                <button type="button">mark as Done!</button> <button type="button" onClick={(x) => onRemove(item)} > delete</button> </li>   )}
             </ul>
         </div>
 
