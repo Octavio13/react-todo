@@ -4,6 +4,7 @@ import './App.css';
 function App() {
     const [todo, setTodo] = React.useState('');
     const [list, setList] = React.useState([]);
+    const [onoff, setstate] = React.useState({clicked:false});
 
     const onAdd = (e) => {
         setList([...list, todo]);
