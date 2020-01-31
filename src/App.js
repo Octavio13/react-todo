@@ -20,22 +20,37 @@ function App() {
     const onInputChange = (e) => {
         setTodo(e.target.value)
     }
+// This part is the function to set the state for the re-rendering of the button once clicked.
+// The idea is to pass the value "onooff" to Handle click in order to chane the state after the rerender
+    const handleClick = (onoff) => {
+        console.log(this.state.clicked);
+            this.setState({clicked:!this.state.clicked})
+
+            //{this.state.clicked:true}
+    }
 
     console.log('I am redering')
 
     return <div style={{ margin: 10 }}>
         <div style={{ paddingBottom: 10 }}>Todo</div>
+
+        ////Todo label, input and button
         <div>
             <label>
-                Todo:
-    <input type="text" name="todo" value={todo} style={{ marginLeft: 5 }} onChange={onInputChange} />
+                <input type="text" name="todo" value={todo} style={{ marginLeft: 5 }} onChange={onInputChange} />
             </label>
+
             <input type="button" value="Submit" onClick={(x) => onAdd(x)}></input>
         </div>
+
         <div>
             <ul>
                 {list.map((item, i) => <li  >{item} 
-                <button type="button">mark as Done!</button> <button type="button" onClick={(x) => onRemove(item)} > delete</button> </li>   )}
+                //Done! button with triger for chane of state
+                <button type="button" onClick={(x)=> handleClick(onoff)} >Done!</button> 
+                
+                //Delete button
+                <button type="button" onClick={(x) => onRemove(item)} > delete</button> </li>   )}
             </ul>
         </div>
 
